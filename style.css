@@ -1,0 +1,428 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f3f4f6;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20rem;
+  margin: 1rem;
+}
+
+.home {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.login-page {
+  width: 50%;
+  height: 100vh;
+  margin-left: 1rem;
+}
+
+.logo img {
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: white;
+  border-radius: 50%;
+  animation: moveToNav 2s forwards ease-in-out 1s;
+  z-index: 10;
+}
+
+.enroll,
+.input,
+.company-name,
+.footer {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+.company-name {
+  margin-left: 2rem;
+}
+
+@keyframes moveToNav {
+  0% {
+    top: 50%;
+    left: 50%;
+    transform: scale(0.5);
+    transform: translate(-50%, -50%);
+    background-color: white; 
+    border-radius: 50%; 
+  }
+  50% {
+    top: 50%;
+    left: 50%;
+    transform: scale(1.5);
+    transform: translate(-50%, -50%);
+    background-color: white; 
+    border-radius: 50%; 
+  }
+  100% {
+    top: 1rem; 
+    left: 1rem;
+    transform: translate(0, 0);
+    background-color: transparent; 
+    border-radius: 0%;
+  }
+}
+
+
+body.show-home .home,
+body.show-home .login-page,
+body.show-home .banner,
+body.show-home .footer,
+body.show-home .input,
+body.show-home .enroll,
+body.show-home .company-name {
+  visibility: visible;
+  opacity: 1;
+}
+
+@keyframes logoCenter {
+  0% {
+    top: 1rem;
+    left: 1rem;
+    background-color: white;
+    border-radius: 0%; 
+  }
+  50% {
+    top: 1rem;
+    left: 1rem;
+    background-color: white; 
+    border-radius: 50%; 
+  }
+  60% {
+    /* Pause effect */
+    top: 1rem;
+    left: 1rem;
+    background-color: white;
+    border-radius: 50%;
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 50%; 
+  }
+}
+
+.enroll {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.enroll p {
+  font-size: 0.8rem;
+}
+.btn {
+  padding: 0.8rem;
+  border-radius: 2rem;
+  background-color: white;
+  border-color: rgb(172, 186, 186);
+  color: rgb(40, 220, 100);
+  font-weight: 600;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.submit:hover {
+  background-color: #0f5e14;
+  cursor: pointer;
+}
+.input {
+  margin: 5rem;
+}
+.intro {
+  text-align: center;
+}
+.form {
+  text-align: center;
+}
+.form {
+  text-align: center;
+}
+
+.form input {
+  margin: 1rem;
+  width: 20rem;
+  padding: 1rem;
+  background-color: rgb(249, 250, 251);
+  border: 1px solid #d1d5db; /* Default border color */
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease; /* Smooth transition for color change */
+}
+
+.form input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+.form input:not(:placeholder-shown) {
+  border-color: #4caf50;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 10px -5.5rem;
+}
+
+.check {
+  margin-right: 0;
+}
+
+.remember-label label {
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: -12rem;
+}
+
+.remember {
+  width: 16px;
+  height: 16px;
+}
+
+.submit {
+  background-color: rgb(40, 220, 100);
+  border-radius: 1rem;
+  padding: 0.8rem;
+  width: 20rem;
+  outline: none;
+  border: 0.1rem solid #28dc64;
+}
+.forgot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: #107732;
+
+  margin: 1rem;
+}
+.footer {
+  margin: 6rem;
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+.foot1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.foot1 img {
+  width: 1rem;
+  height: 1rem;
+}
+.foot2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.banner {
+  width: 100vw;
+  height: 100vh;
+
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 1;
+  animation: bannerFullscreen 3s forwards;
+}
+
+.banner img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: moveBannerImage 3.5s forwards, scaleUpDown 3.5s forwards; /* Apply the movement and scale animations */
+}
+
+@keyframes moveBannerImage {
+  0% {
+    left: 0;
+    right: auto;
+    width: 100vw;
+  }
+  50% {
+    left: 0;
+    width: 100vw;
+  }
+  100% {
+    left: 50vw;
+    right: 0;
+    width: 50vw;
+  }
+}
+
+@keyframes scaleUpDown {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav {
+    gap: 10rem;
+  }
+}
+@media (max-width: 600px) {
+  .home {
+    display: flex;
+    justify-content: left;
+
+    flex-direction: row;
+    margin: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.1rem;
+    overflow-x: hidden;
+
+  }
+  .btn {
+    padding: 0.2rem;
+  }
+  .company-name {
+    display: hide;
+  }
+  .intro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+  .login-page {
+    justify-content: left;
+    max-width: 100%;
+    margin: 0.5rem;
+    height: auto;
+    margin: 0;
+  }
+  .logo img {
+    width: 1rem;
+    height: 1rem;
+  }
+  .form {
+    margin: 0.5rem;
+  }
+  .nav img {
+    position: absolute;
+  }
+  .nav {
+    gap: 1rem;
+    margin: auto;
+    position: sticky;
+  }
+  .input {
+    width: auto;
+    height: auto;
+
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .input input {
+    max-width: auto;
+    height: auto;
+  }
+
+  .submit {
+    max-width: auto;
+  }
+
+  @keyframes moveBannerImage {
+    0% {
+      width: 100%;
+      height: 100vh;
+    }
+    100% {
+      clear: both;
+      display: none;
+      overflow-y: hidden;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    flex-wrap: wrap;
+    margin: 1rem;
+    justify-content: center;
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 0.8rem;
+  }
+
+  .login-page {
+    width: 100%;
+    margin: 1rem;
+    height: 50vh;
+  }
+  .intro {
+    font-size: 1rem;
+  }
+  .input {
+    margin: 8rem;
+  }
+
+  .input input {
+    width: 20rem;
+    justify-content: start;
+    margin: 1rem;
+  }
+
+  .submit {
+    width: 20rem;
+  }
+
+  .footer {
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 8rem;
+  }
+
+  @keyframes moveBannerImage {
+    0% {
+      left: 0;
+      right: auto;
+      width: 100vw;
+    }
+    100% {
+      display: none;
+    }
+  }
+}
